@@ -5,18 +5,18 @@ import DataDisplay from './DataDisplay';
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleLoginSuccess = (data) => {
+  const handleLoginSuccess = () => {
     setLoggedIn(true);
-    setData(data);
   };
 
   return (
     <div className="App">
       {!loggedIn ? (
-        <LoginForm onLoginSuccess={handleLoginSuccess} />
+        <LoginForm onLoginSuccess={handleLoginSuccess} setData={setData} setLoading={setLoading} />
       ) : (
-        <DataDisplay data={data} />
+        <DataDisplay data={data} loading={loading} />
       )}
     </div>
   );
