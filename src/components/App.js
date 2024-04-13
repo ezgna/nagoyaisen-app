@@ -16,7 +16,7 @@ const App = () => {
       {!loggedIn ? (
         <LoginForm onLoginSuccess={handleLoginSuccess} setData={setData} setLoading={setLoading} />
       ) : (
-        <DataDisplay data={data} loading={loading} />
+        <DataDisplay data={data} setData={setData} loading={loading} setLoading={setLoading} setLoggedIn={setLoggedIn} />
       )}
     </div>
   );
